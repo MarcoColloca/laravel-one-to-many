@@ -8,7 +8,7 @@
     <section class="mb-5 py-5 bg-purple">
         <div class="bg-light container py-4 types-cotnainer">
 
-            <h1 class="my-4 text-center text-danger"> types Types</h1>
+            <h1 class="my-4 text-center text-danger"> Types</h1>
             <div class="text-end me-3">
                 <a class="btn btn-dark mb-5" href="{{route('admin.types.create')}}">Add Type</a>
             </div>
