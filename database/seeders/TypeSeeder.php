@@ -17,15 +17,15 @@ class TypeSeeder extends Seeder
     {
         // DB::table('types')->truncate();
 
-        $categories = ['FrontEnd', 'Backend', 'FullStack'];
+        $types = ['FrontEnd', 'Backend', 'FullStack'];
 
-        foreach ($categories as $category_name) {
-            $new_category = new Type();
+        foreach ($types as $type_name) {
+            $new_type = new Type();
 
-            $new_category->name = $category_name;
-            $new_category->slug = Str::slug($category_name);
+            $new_type->name = $type_name;
+            $new_type->slug = Str::slug($type_name);
 
-            $new_category->save();
+            $new_type->save();
         }
     }
 }
