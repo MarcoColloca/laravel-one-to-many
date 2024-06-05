@@ -70,7 +70,15 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->validated();
+
+        $type->fill($form_data);
+
+        $type->slug = Type::getUniqueSlug($type->name);
+
+        $type->save();
+
+        return to_route('admin.types.index');
     }
 
     /**
