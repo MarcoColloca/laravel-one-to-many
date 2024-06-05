@@ -41,7 +41,10 @@ class TypeController extends Controller
         $new_type->slug = Type::getUniqueSlug($new_type->name);
 
 
-        dd($new_type);
+        // dd($new_type);
+        $new_type->save();
+
+        return to_route("admin.types.index");
     }
 
     /**
