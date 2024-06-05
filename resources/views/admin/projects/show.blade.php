@@ -13,7 +13,7 @@
                     <span class="fw-bold">Created:</span> {{$project->date_of_creation}}
                 </p>
                 <p>
-                    <span class="fw-bold">Type of Project:</span> {{$project->is_public === 0 ? 'Public' : 'Private'}}
+                    <span class="fw-bold">Type of Project:</span> {{$project->is_public === 0 ? 'Public' : 'Private'}} {{$project->type?->name ? ' - ' . $project->type->name: ''}}
                 </p>
                 <p>
                     <a class="link link-primary" href="{{$project->link}}">Link al progetto</a>

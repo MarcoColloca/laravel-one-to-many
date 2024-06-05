@@ -17,21 +17,28 @@
             @csrf
             @method('PUT')
 
+            <!-- Name -->
             <div class="mb-3">
                 <label for="name" class="form-label fw-bold">Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Insert your name's project"
                     value="{{ old('name', $project->name) }}">
             </div>
+
+            <!-- Link -->
             <div class="mb-3">
                 <label for="link" class="form-label fw-bold">Link</label>
                 <input type="text" class="form-control" id="link" name="link" placeholder="Insert your link's project"
                     value="{{ old('link', $project->link) }}">
             </div>
+
+            <!-- Date of Creation -->
             <div class="mb-3">
                 <label for="date_of_creation" class="form-label fw-bold">Date of Creation</label>
                 <input type="date" class="form-control" id="date_of_creation" name="date_of_creation" placeholder="Insert date"
                     value="{{ old('date_of_creation', $project->date_of_creation) }}">
             </div>
+
+            <!-- Public or Private -->
             <div class="mb-3">
                 <label for="floatingSelect">Type</label>
                 <select class="form-select" id="type" name="type" aria-label="Floating label select example">
@@ -44,17 +51,34 @@
                     @endif
                 </select>        
             </div>
+
+            <!-- Type of Project -->
+            <div class="form-group mb-3">
+                <label for="type_id">Type of Project</label>
+                <select class="form-control" name="type_id" id="type_id">
+                    <option value="">-- Seleziona Categoria --</option>
+                    @foreach ($types as $type)                        
+                        <option @selected($type->id == old('type_id', $project->type_id)) value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Number of Contributors -->
             <div class="mb-3">
-                <label for="contributors" class="form-label fw-bold">Contributors</label>
+                <label for="contributors" class="form-label fw-bold">Number of Contributors</label>
                 <input type="number" class="form-control" id="contributors" name="contributors" placeholder="Insert value"
                     value="{{ old('contributors', $project->contributors) }}">
             </div>
+            
+            <!-- Names of Contributors -->
             <div class="mb-3">
                 <label for="contributors_name" class="form-label fw-bold">Contributors Names (if any)</label>
                 <textarea class="form-control" id="contributors_name" name="contributors_name"
                     placeholder="Contributor, Contributor, Contributor">{{old('contributors_name', $project->contributors_name)}}
                 </textarea>
             </div>
+
+            <!-- Description -->
             <div class="mb-3">
                 <label for="description" class="form-label fw-bold">Description</label>
                 <textarea class="form-control" id="description" name="description"
@@ -62,7 +86,7 @@
                 </textarea>
             </div>
 
-            <button class="btn btn-primary">Create</button>
+            <button class="btn btn-primary">Edit</button>
         </form>
     </div>
 

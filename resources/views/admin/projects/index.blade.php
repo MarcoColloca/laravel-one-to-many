@@ -16,7 +16,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Date of Creation</th>
-                        <th scope="col">Type of Project</th>
+                        <th colspan="2" scope="col">Type of Project</th>
                         <th scope="col">Contributors</th>
                         <th scope="col">More Info</th>
                         <th scope="col">Modify</th>
@@ -30,9 +30,10 @@
                             <td>{{$project->slug}}</td>
                             <td>{{$project->date_of_creation}}</td>
                             <td>{{$project->is_public === 0 ? 'Public' : 'Private'}}</td>
+                            <td>{{$project->type?->name ? $project->type->name : ''}}</td>
                             <td class="text-center">{{$project->contributors}}</td>
-                            <td><a class="text-success" href="{{route('admin.projects.show', $project)}}">Show Info</a></td>
-                            <td><a class="text-primary" href="{{route('admin.projects.edit', $project)}}">Edit</a></td>
+                            <td class="text-center"><a class="text-success" href="{{route('admin.projects.show', $project)}}">Info</a></td>
+                            <td class="text-center"><a class="text-primary" href="{{route('admin.projects.edit', $project)}}">Edit</a></td>
                             <td class="text-center">
                                 <form class="item-delete-form" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                                     @csrf

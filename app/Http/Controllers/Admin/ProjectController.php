@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
@@ -46,9 +47,13 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create()    
     {
-        return view('admin.projects.create');
+
+        $types = Type::orderBy('name', 'asc')->get();
+
+
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -94,7 +99,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("admin.projects..edit", compact("project"));
+
+        $types = Type::orderBy('name', 'asc')->get();
+
+
+        return view("admin.projects..edit", compact("project"), compact('types'));
     }
 
     /**
