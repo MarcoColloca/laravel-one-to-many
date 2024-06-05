@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Type extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
 
     public function projects(){

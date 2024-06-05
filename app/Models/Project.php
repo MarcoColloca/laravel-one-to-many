@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
 
     public function type(){
@@ -15,6 +17,6 @@ class Project extends Model
         return $this->belongsTo(Type::class);
     }
 
-
     protected $fillable = ['name', 'link', 'slug', 'link', 'description', 'date_of_creation', 'is_public', 'contributors', 'contributors_link', 'type_id'];
+
 }

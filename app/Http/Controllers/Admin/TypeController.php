@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
 class TypeController extends Controller
-{
+{   
     /**
      * Display a listing of the resource.
      */
@@ -29,9 +32,16 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $new_type = new Type();
+        $new_type->name = $form_data['name'];
+        $new_type->slug = Type::getUniqueSlug($new_type->name);
+
+
+        dd($new_type);
     }
 
     /**
@@ -53,7 +63,7 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
         //
     }

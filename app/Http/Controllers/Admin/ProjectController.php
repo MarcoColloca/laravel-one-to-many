@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    protected function getUniqueSlug($name){
+    public function getUniqueSlug($name){
 
         $base_slug = Str::slug($name);
         $slug = $base_slug;
@@ -76,7 +76,8 @@ class ProjectController extends Controller
         $new_project->contributors = $form_data['contributors'];
         $new_project->contributors_name = $form_data['contributors_name'];
         $new_project->description = $form_data['description'];
-        $new_project->slug = $this->getUniqueSlug($new_project->name);
+        //$new_project->slug = $this->getUniqueSlug($new_project->name);
+        $new_project->slug = Project::getUniqueSlug($new_project->name);
 
         //dd($new_project);
 
