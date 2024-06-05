@@ -16,5 +16,5 @@ class Project extends Model
     }
 
 
-    protected $fillable = ['name', 'link', 'slug', 'link', 'description', 'date_of_creation', 'is_public', 'contributors', 'contributors_link'];
+    protected $fillable = ['name', 'link', 'slug', 'link', 'description', 'date_of_creation', 'is_public', 'contributors', 'contributors_link', 'type_id'];
 }
