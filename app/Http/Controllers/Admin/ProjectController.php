@@ -70,6 +70,7 @@ class ProjectController extends Controller
 
         $new_project->name = $form_data['name'];
         $new_project->link = $form_data['link'];
+        $new_project->type_id = $form_data['type_id'];
         $new_project->date_of_creation = $form_data['date_of_creation'];        
         $new_project->is_public = $request->input('type');        
         $new_project->contributors = $form_data['contributors'];
