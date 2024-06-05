@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -40,6 +41,10 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker): void
     {
         
+        $types = Type::all(); // Collection di oggetti Type
+
+        /** Tramite un metodo presente dentro la Collection */
+        $ids = $types->pluck('id')->all(); // Array di ids 
         
         
         // Creazione di dati temporanei tramite Faker
@@ -58,6 +63,7 @@ class ProjectSeeder extends Seeder
             $project->is_public = $faker->randomElement([true, false]);
             $project->contributors = $contributors_number;
             $project->contributors_name = $contributors_list;
+            $project->type_id = $faker->optional()->randomElement($ids);
 
             $project->save();
             // dump($project);
