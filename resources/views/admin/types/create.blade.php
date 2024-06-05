@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Character')
+@section('title', 'Add New Type')
 
 @section('content')
 <section class="mt-5 pt-5">

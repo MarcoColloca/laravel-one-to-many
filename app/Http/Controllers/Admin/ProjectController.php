@@ -84,7 +84,7 @@ class ProjectController extends Controller
         $types = Type::orderBy('name', 'asc')->get();
 
 
-        return view("admin.projects..edit", compact("project"), compact('types'));
+        return view("admin.projects.edit", compact("project"), compact('types'));
     }
 
     /**

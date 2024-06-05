@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Types')
+
+
 @section('content')
     
     <section class="mb-5 py-5 bg-purple">
