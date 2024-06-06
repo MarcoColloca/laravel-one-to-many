@@ -32,7 +32,7 @@
                         @else
                         <!-- Guest Projects Link -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('guest.guest_projects.index') }}">{{ __('Projects') }}</a>
+                            <a class="nav-link" href="{{route('guest.projects.index') }}">{{ __('Projects') }}</a>
                         </li>
                         @endif
                         @auth
