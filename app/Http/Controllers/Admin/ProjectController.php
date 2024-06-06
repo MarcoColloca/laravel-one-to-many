@@ -18,7 +18,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        //$projects = Project::all();
+        $projects = Project::with(['type', 'type.projects'])->get(); // 3 query. la 1° prende i project, la 2° prende i tipi associati a quel project, la 3° prende tutti i progetti associati al tipo indicato
+        //dd($projects);
+
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -70,7 +73,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        
+        // eager loading
+        $project->load(['type', 'type.projects']);
 
         return view('admin.projects.show', compact('project'));
     }
