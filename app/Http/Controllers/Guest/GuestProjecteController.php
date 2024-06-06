@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
-use App\Models\GuestProject;
-use App\Http\Requests\StoreGuestProjectRequest;
-use App\Http\Requests\UpdateGuestProjectRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Project;
+use Illuminate\Http\Request;
 
-class GuestProjectController extends Controller
+class GuestProjecteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class GuestProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGuestProjectRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class GuestProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(GuestProject $guestProject)
+    public function show(Project $project)
     {
         //
     }
@@ -43,7 +43,7 @@ class GuestProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(GuestProject $guestProject)
+    public function edit(Project $project)
     {
         //
     }
@@ -51,7 +51,7 @@ class GuestProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGuestProjectRequest $request, GuestProject $guestProject)
+    public function update(Request $request, Project $project)
     {
         //
     }
@@ -59,7 +59,7 @@ class GuestProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(GuestProject $guestProject)
+    public function destroy(Project $project)
     {
         //
     }
