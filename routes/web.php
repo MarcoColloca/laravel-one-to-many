@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\GuestProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::name('guest.')
+->prefix('guest')
+->group(function(){
+    Route::resource('guest_projects', GuestProjectController::class);
+});
 
 
 Route::middleware(['auth', 'verified'])

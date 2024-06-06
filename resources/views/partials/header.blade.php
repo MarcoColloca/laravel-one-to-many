@@ -20,15 +20,27 @@
                 <div class="col-4">
                     <!-- Center Of Navbar -->
                     <ul class="navbar-nav navbar-nav d-flex align-items-center justify-content-center">
+                        <!-- Guest Types Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        @auth
+                        <!-- Admin Projects Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.projects.index') }}">{{ __('Projects') }}</a>
                         </li>
+                        @else
+                        <!-- Guest Projects Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('guest.guest_projects.index') }}">{{ __('Projects') }}</a>
+                        </li>
+                        @endif
+                        @auth
+                        <!-- Admin Types Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.types.index') }}">{{ __('Types') }}</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
 
