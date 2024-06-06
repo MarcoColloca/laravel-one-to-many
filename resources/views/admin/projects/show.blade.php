@@ -57,8 +57,26 @@
                     </div>
                 </div>               
             </div>
+
+            @if($project->type)
+            <div class="related-project-container mt-5">
+                <h2 class="mb-3">Related Projects:</h2>
+                <ul>
+                    @foreach ($project->type->projects as $current_project)
+                    <li>
+                        <h5>
+                            <a href="{{route('admin.projects.show', $current_project)}}">{{$current_project->name}}</a>
+                        </h5>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
     </div>
+
+    
+    
 </section>
 
 @endsection
