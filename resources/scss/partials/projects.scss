@@ -10,11 +10,6 @@
     ul{
         
         list-style-type: disc;
-        li{
-            &:hover{
-                text-decoration: underline;
-                color: #390088;
-            }
-        }
+
     }
 }
